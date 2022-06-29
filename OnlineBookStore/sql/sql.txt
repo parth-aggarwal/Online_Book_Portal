@@ -1,0 +1,24 @@
+create database onlinebookstore;
+
+use onlinebookstore;
+
+create table books(ownerid varchar(100),barcode varchar(100) primary key, name varchar(100), author varchar(100), price varchar(100),publisher varchar(100),edition varchar(100), year varchar(100));
+
+create table users(username varchar(100),password varchar(100), firstname varchar(100),lastname varchar(100),address text, phone varchar(100),mailid varchar(100),usertype int, wallet int, userid int NOT NULL AUTO_INCREMENT  primary key);
+
+create table requests(ownerid varchar(100), username varchar(100) NOT NULL,requestid int NOT NULL AUTO_INCREMENT primary key,barcode varchar(100) , name varchar(100) , author varchar(100) , price varchar(100),publisher varchar(100),edition varchar(100), year varchar(100),duration varchar(100) NOT NULL);
+
+create table review(bname varchar(100), author varchar(100), edition varchar(100), year varchar(100), review varchar(1000));
+
+insert into books values('lal','10101','Programming in C','James k Wick','500','ReadWell','2','2000');
+insert into books values('lal','10102','Learn Java','Scott Mayers','150','ReadWell','9','2002');
+insert into books values('Admin','10103','Database Knowledge','Charles Pettzoid','124','Remedy','1','2021');
+insert into books values('Admin','10104','Let us c++','Steve Macclen','90','Classmate','7','2012');
+insert into books values('lal','10105','Success Key','Shreyas Sajilal','5000','Polo','4','2018');
+insert into users (username,password, firstname,lastname,address,phone,mailid,usertype,wallet) values('User','Password','First','User','My Home','42502216225','User@gmail.com',2,1000);
+insert into users (username,password, firstname,lastname,address,phone,mailid,usertype,wallet) values('Admin','Admin','Mr.','Admin','Haldia WB','9584552224521','admin@gmail.com',1,10);
+insert into users(username,password, firstname,lastname,address,phone,mailid,usertype,wallet) values('lal','lal','Shreyas','Sajilal','Kerala','1236547089','lal@gmail.com',2,150);
+insert into requests(ownerid,username,barcode,name,author,price,publisher,edition,year,duration) values('lal','abhinav','6231','How to study','Abhinav','5000','God','6','2001','10');
+insert into requests(ownerid,username,barcode,name,author,price,publisher,edition,year,duration) values('abhinav','lal','420','Requested','Abhinav','5000','God','6','2010','10');
+
+commit;
